@@ -1,10 +1,12 @@
-const CACHE_NAME = 'mymoney-cache-v1';
+const CACHE_NAME = 'mymoney-cache-v2';
+const scope = self.registration ? self.registration.scope : './';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/icon.svg',
-  '/apple-touch-icon.png'
+  './',
+  'index.html',
+  'manifest.webmanifest',
+  'manifest.json',
+  'icon.svg',
+  'apple-touch-icon.png'
 ];
 
 self.addEventListener('install', (event) => {

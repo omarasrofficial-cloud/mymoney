@@ -44,7 +44,8 @@ export function App() {
     // Register PWA Service Worker
     if ('serviceWorker' in navigator && import.meta.env.PROD) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then((reg) => {
+        const swUrl = import.meta.env.BASE_URL === '/' ? '/sw.js' : `${import.meta.env.BASE_URL}sw.js`;
+        navigator.serviceWorker.register(swUrl).then((reg) => {
           console.log('SW registered:', reg.scope);
         }).catch((err) => {
           console.log('SW registration failed:', err);
