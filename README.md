@@ -2,9 +2,11 @@
 
 **MyMoney** is a mobile-first Progressive Web App designed specifically for **ONE user on ONE device** (tailored for iPhone 8, Safari, iOS 16, 375×667 screen). Currency is Bangladeshi Taka (**BDT ৳**) with authentic South Asian grouping (`৳ 1,25,000`).
 
-> 🌐 **Live Netlify URL**: [https://mymoney-tracker-fhyo.netlify.app](https://mymoney-tracker-fhyo.netlify.app)
+> 🐙 **GitHub Repository**: [https://github.com/omarasrofficial-cloud/mymoney](https://github.com/omarasrofficial-cloud/mymoney)
+>
+> 🌐 **Live GitHub Pages App**: [https://omarasrofficial-cloud.github.io/mymoney/](https://omarasrofficial-cloud.github.io/mymoney/)
 > 
-> ⚙️ **Netlify Project Dashboard**: [https://app.netlify.com/projects/mymoney-tracker-fhyo](https://app.netlify.com/projects/mymoney-tracker-fhyo)
+> ⚡ **Alternative Live Netlify App**: [https://mymoney-tracker-fhyo.netlify.app](https://mymoney-tracker-fhyo.netlify.app)
 
 ---
 
