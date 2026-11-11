@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>MyMoney - Personal Finance</title>
+    
+    <!-- PWA meta tags for iOS Safari -->
+    <meta name="application-name" content="MyMoney" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MyMoney" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#006A4E" />
+    <meta name="description" content="Offline personal finance tracker for iOS and mobile" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    
+    <style>
+      /* Safe area insets for iPhone 8 and iOS */
+      :root {
+        --sat: env(safe-area-inset-top, 0px);
+        --sar: env(safe-area-inset-right, 0px);
+        --sab: env(safe-area-inset-bottom, 0px);
+        --sal: env(safe-area-inset-left, 0px);
+      }
+      body {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      input, textarea {
+        user-select: text;
+        -webkit-user-select: text;
+      }
+
+      /* AGGRESSIVELY HIDE NETLIFY INJECTED BADGE / OVERLAYS THAT BLOCK BUTTONS */
+      #nl-badge-frame,
+      iframe#nl-badge-frame,
+      iframe[id*="nl-badge"],
+      iframe[src*="netlify"],
+      iframe[id*="netlify"],
+      iframe[style*="2147483645"],
+      iframe[style*="2147483647"],
+      div[id*="netlify"],
+      div[class*="netlify-badge"],
+      div[class*="netlify"],
+      a[href*="netlify.com"],
+      div:has(> a[href*="netlify.com"]),
+      div[style*="z-index: 2147483647"],
+      div[style*="z-index:2147483647"],
+      div[style*="z-index: 2147483645"],
+      div[style*="z-index:2147483645"] {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        opacity: 0 !important;
+        max-height: 0 !important;
+        max-width: 0 !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        overflow: hidden !important;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-gray-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Automatically detect and remove any injected "Powered by Netlify" floating badge
+      function removeNetlifyBadge() {
+        try {
+          var badge = document.getElementById('nl-badge-frame');
+          if (badge) badge.remove();
+          var hudScript = document.querySelector('script[src*="hud"]');
+          if (hudScript) hudScript.remove();
+          var iframes = document.querySelectorAll('iframe');
+          iframes.forEach(function(f) {
+            if (f.id && f.id.indexOf('nl-badge') !== -1) f.remove();
+            if (f.style && (f.style.zIndex === '2147483645' || f.style.zIndex === '2147483647')) f.remove();
+          });
+          var els = document.querySelectorAll('iframe, div, a');
+          els.forEach(function(el) {
+            if (el.innerText && el.innerText.includes('Powered by Netlify')) {
+              el.remove();
+            }
+            if (el.getAttribute('href') && el.getAttribute('href').includes('netlify.com') && el.innerText && el.innerText.includes('Netlify')) {
+              var parent = el.closest('div');
+              if (parent) parent.remove();
+              else el.remove();
+            }
+          });
+        } catch(e) {}
+      }
+      removeNetlifyBadge();
+      var observer = new MutationObserver(removeNetlifyBadge);
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('DOMContentLoaded', removeNetlifyBadge);
+      window.addEventListener('load', removeNetlifyBadge);
+      setInterval(removeNetlifyBadge, 200);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+node_modules
+dist
+.netlify
+.DS_Store
+*.local
+*.png
+deploy_netlify.*
+test_live.*
+screenshot_*.*
+verify_browser.*
+generate_png.*
+install_*.ps1
